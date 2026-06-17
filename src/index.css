@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased;
+    background-image:
+      radial-gradient(at 15% 0%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+      radial-gradient(at 85% 100%, rgba(5, 150, 105, 0.06) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-brand-ocean/25 text-brand-ink;
+  }
+}
+
+@layer components {
+  .site-card {
+    @apply relative block rounded-2xl bg-white p-4 shadow-card border border-slate-100
+      transition-all duration-300 ease-out
+      hover:shadow-cardHover hover:-translate-y-1 hover:border-brand-ocean/25;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium
+      border transition-all duration-200;
+  }
+  .chip-default {
+    @apply bg-white text-slate-600 border-slate-200 hover:text-brand-ocean hover:border-brand-ocean/40;
+  }
+  .chip-active {
+    @apply bg-gradient-to-r from-brand-ocean to-brand-lagoon text-white border-transparent shadow-soft;
+  }
+
+  .section-title {
+    @apply text-xl sm:text-2xl font-bold text-brand-ink tracking-tight;
+  }
+
+  .subtle {
+    @apply text-slate-500 text-sm;
+  }
+}
+
+/* Wave decoration (pure CSS/SVG pattern) */
+.wave-path {
+  fill: rgba(14, 165, 233, 0.08);
+}
+
+/* Hide scrollbar but keep scroll (for category chip row on mobile) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
